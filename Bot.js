@@ -2,7 +2,7 @@
 
 const discord = require("discord.js");
 const client = new discord.Client();
-client.login("Njk1Mzc4Mjg2NjQ1MDg0MjI0.Xot8BQ.PjrvWsk9wQt8u0SYKe2S1R9AQv4"/*bot token*/);
+client.login("Njk1Mzc4Mjg2NjQ1MDg0MjI0.XouLyw.KjHKGcp5i22hLaNGXSblC5lbAd0"/*bot token*/);
 const Youtube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 
@@ -68,6 +68,25 @@ client.on("message", msg =>
      else {
       msg.reply('entra num canal primeiro parsa');
     }}
+
+    else if (msg.content === 'ronaldo') {
+      // Only try to join the sender's voice channel if they are in one themselves
+      if (msg.member.voice.channel) {
+        const voicechannel = msg.member.voice.channel;
+        voicechannel.join().then(connection => 
+          {
+              const dispatcher = connection.play(
+                ytdl("https://www.youtube.com/watch?v=TFdO7oqkMzI", { // pass the url to .ytdl()
+                  quality: 'highestaudio',
+                  // download part of the song before playing it
+                  // helps reduces stuttering
+                  highWaterMark: 1024 * 1024 * 10
+                }));
+          }).catch(err => {console.log(err); VoiceChannel.leave();});
+        }
+       else {
+        msg.reply('entra num canal primeiro parsa');
+      }}
     //else if(msg.content == "")
     /*seus else if vem aqui*/
 });
