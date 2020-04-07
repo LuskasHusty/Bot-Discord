@@ -2,7 +2,7 @@
 
 const discord = require("discord.js");
 const client = new discord.Client();
-client.login("XXXXXXXXXXXXXX"/*bot token*/);
+client.login("XXXXXXXXXXX"/*bot token*/);
 const Youtube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 var embed = new discord.MessageEmbed();
@@ -41,6 +41,10 @@ client.on("message", msg =>
       msg.channel.send("imb é o caralho \nnem sei escrever o nome dessa porra");
     }
 
+    else if(msg.content.toLowerCase().includes("covid")){
+      msg.channel.send("bacteria filha da ^^^^ microbiu do ^^^^^^");
+    }
+
     else if(msg.content.toLowerCase().includes("cabub")){
       msg.channel.send("pseudo dono e melhor veterano");
     }
@@ -51,7 +55,7 @@ client.on("message", msg =>
     
 
     if (!msg.guild) return;
-    if (msg.content === '/gragas') {
+    if (msg.content.toLowerCase().includes("gragas")) {
     // Only try to join the sender's voice channel if they are in one themselves
     if (msg.member.voice.channel) {
       const voicechannel = msg.member.voice.channel;
@@ -70,7 +74,7 @@ client.on("message", msg =>
       msg.reply('entra num canal primeiro parsa');
     }}
 
-    else if (msg.content === 'ronaldo') {
+    else if (msg.content.toLowerCase().includes("ronaldo")) {
       // Only try to join the sender's voice channel if they are in one themselves
       if (msg.member.voice.channel) {
         const voicechannel = msg.member.voice.channel;
@@ -89,7 +93,7 @@ client.on("message", msg =>
         msg.reply('entra num canal primeiro parsa');
       }}
 
-      else if (msg.content === 'ratatui') {
+      else if (msg.content.toLowerCase().includes("ratatui")) {
         // Only try to join the sender's voice channel if they are in one themselves
         if (msg.member.voice.channel) {
           const voicechannel = msg.member.voice.channel;
@@ -107,6 +111,25 @@ client.on("message", msg =>
          else {
           msg.reply('entra num canal primeiro parsa');
         }}
+
+        else if (msg.content.toLowerCase().includes("covid")) {
+          // Only try to join the sender's voice channel if they are in one themselves
+          if (msg.member.voice.channel) {
+            const voicechannel = msg.member.voice.channel;
+            voicechannel.join().then(connection => 
+              {
+                  const dispatcher = connection.play(
+                    ytdl("https://www.youtube.com/watch?v=yyGKsD5uBVg", { // pass the url to .ytdl()
+                      quality: 'highestaudio',
+                      // download part of the song before playing it
+                      // helps reduces stuttering
+                      highWaterMark: 1024 * 1024 * 10
+                    }));
+              }).catch(err => {console.log(err); VoiceChannel.leave();});
+            }
+           else {
+            msg.reply('entra num canal primeiro parsa');
+          }}
     //else if(msg.content == "")
     /*seus else if vem aqui*/
 });
