@@ -2,7 +2,7 @@
 
 const discord = require("discord.js");
 const client = new discord.Client();
-client.login("XXXXXXXXXXX"/*bot token*/);
+client.login("XXXXXX"/*bot token*/);
 const Youtube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 var embed = new discord.MessageEmbed();
