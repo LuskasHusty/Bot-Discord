@@ -2,7 +2,7 @@
 
 const discord = require("discord.js");
 const client = new discord.Client();
-client.login("XXXXXX"/*bot token*/);
+client.login("Njk1Mzc4Mjg2NjQ1MDg0MjI0.XozEug.HtCXflq0A5aayDKQEVooBXQO-40"/*bot token*/);
 const Youtube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 var embed = new discord.MessageEmbed();
@@ -57,79 +57,43 @@ client.on("message", msg =>
     if (!msg.guild) return;
     if (msg.content.toLowerCase().includes("gragas")) {
     // Only try to join the sender's voice channel if they are in one themselves
-    if (msg.member.voice.channel) {
-      const voicechannel = msg.member.voice.channel;
-      voicechannel.join().then(connection => 
-        {
-            const dispatcher = connection.play(
-              ytdl("https://www.youtube.com/watch?v=dSsUCZbzmq8", { // pass the url to .ytdl()
-                quality: 'highestaudio',
-                // download part of the song before playing it
-                // helps reduces stuttering
-                highWaterMark: 1024 * 1024 * 10
-              }));
-        }).catch(err => {console.log(err); VoiceChannel.leave();});
-      }
-     else {
-      msg.reply('entra num canal primeiro parsa');
-    }}
+      play("https://www.youtube.com/watch?v=dSsUCZbzmq8");
+    }
 
     else if (msg.content.toLowerCase().includes("ronaldo")) {
       // Only try to join the sender's voice channel if they are in one themselves
-      if (msg.member.voice.channel) {
-        const voicechannel = msg.member.voice.channel;
-        voicechannel.join().then(connection => 
-          {
-              const dispatcher = connection.play(
-                ytdl("https://www.youtube.com/watch?v=TFdO7oqkMzI", { // pass the url to .ytdl()
-                  quality: 'highestaudio',
-                  // download part of the song before playing it
-                  // helps reduces stuttering
-                  highWaterMark: 1024 * 1024 * 10
-                }));
-          }).catch(err => {console.log(err); VoiceChannel.leave();});
-        }
-       else {
-        msg.reply('entra num canal primeiro parsa');
-      }}
+      play("https:www.youtube.com/watch?v=TFdO7oqkMzI");
+    }
 
-      else if (msg.content.toLowerCase().includes("ratatui")) {
-        // Only try to join the sender's voice channel if they are in one themselves
-        if (msg.member.voice.channel) {
-          const voicechannel = msg.member.voice.channel;
-          voicechannel.join().then(connection => 
-            {
-                const dispatcher = connection.play(
-                  ytdl("https://www.youtube.com/watch?v=p_hdmt4vpBo", { // pass the url to .ytdl()
-                    quality: 'highestaudio',
-                    // download part of the song before playing it
-                    // helps reduces stuttering
-                    highWaterMark: 1024 * 1024 * 10
-                  }));
-            }).catch(err => {console.log(err); VoiceChannel.leave();});
-          }
-         else {
-          msg.reply('entra num canal primeiro parsa');
-        }}
-
-        else if (msg.content.toLowerCase().includes("covid")) {
-          // Only try to join the sender's voice channel if they are in one themselves
-          if (msg.member.voice.channel) {
-            const voicechannel = msg.member.voice.channel;
-            voicechannel.join().then(connection => 
-              {
-                  const dispatcher = connection.play(
-                    ytdl("https://www.youtube.com/watch?v=yyGKsD5uBVg", { // pass the url to .ytdl()
-                      quality: 'highestaudio',
-                      // download part of the song before playing it
-                      // helps reduces stuttering
-                      highWaterMark: 1024 * 1024 * 10
-                    }));
-              }).catch(err => {console.log(err); VoiceChannel.leave();});
-            }
-           else {
-            msg.reply('entra num canal primeiro parsa');
-          }}
+    else if (msg.content.toLowerCase().includes("covid")) 
+        {
+          play("https://www.youtube.com/watch?v=yyGKsD5uBVg");
     //else if(msg.content == "")
     /*seus else if vem aqui*/
+    }
+    if (msg.content.toLowerCase().includes("ratatui")) {
+      // Only try to join the sender's voice channel if they are in one themselves
+        play("https://www.youtube.com/watch?v=p_hdmt4vpBo");
+      }
 });
+
+function play(_link, msg)
+{
+  if (msg.member.voice.channel) {
+    const voicechannel = msg.member.voice.channel;
+    voicechannel.join().then(connection => 
+      {
+          const dispatcher = connection.play(
+            ytdl(_link, { // pass the url to .ytdl()
+              quality: 'highestaudio',
+              // download part of the song before playing it
+              // helps reduces stuttering
+              highWaterMark: 1024 * 1024 * 10
+            }));
+      }).catch(err => {console.log(err); VoiceChannel.leave();});
+    }
+  else 
+  {
+    msg.reply('entra num canal primeiro parsa');
+  }
+}
