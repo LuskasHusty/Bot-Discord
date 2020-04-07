@@ -53,41 +53,33 @@ client.on("message", msg =>
     if (!msg.guild) return;
     if (msg.content === '/gragas') {
     // Only try to join the sender's voice channel if they are in one themselves
-    if (msg.member.voice.channel) {
-      const voicechannel = msg.member.voice.channel;
-      voicechannel.join().then(connection => 
-        {
-            const dispatcher = connection.play(
-              ytdl("https://www.youtube.com/watch?v=dSsUCZbzmq8", { // pass the url to .ytdl()
-                quality: 'highestaudio',
-                // download part of the song before playing it
-                // helps reduces stuttering
-                highWaterMark: 1024 * 1024 * 10
-              }));
-        }).catch(err => {console.log(err); VoiceChannel.leave();});
-      }
-     else {
-      msg.reply('entra num canal primeiro parsa');
-    }}
+      play("https://www.youtube.com/watch?v=dSsUCZbzmq8");
+    }
 
     else if (msg.content === 'ronaldo') {
       // Only try to join the sender's voice channel if they are in one themselves
-      if (msg.member.voice.channel) {
-        const voicechannel = msg.member.voice.channel;
-        voicechannel.join().then(connection => 
-          {
-              const dispatcher = connection.play(
-                ytdl("https://www.youtube.com/watch?v=TFdO7oqkMzI", { // pass the url to .ytdl()
-                  quality: 'highestaudio',
-                  // download part of the song before playing it
-                  // helps reduces stuttering
-                  highWaterMark: 1024 * 1024 * 10
-                }));
-          }).catch(err => {console.log(err); VoiceChannel.leave();});
-        }
-       else {
-        msg.reply('entra num canal primeiro parsa');
-      }}
+      play("https:www.youtube.com/watch?v=TFdO7oqkMzI");
     //else if(msg.content == "")
     /*seus else if vem aqui*/
+    }
 });
+function play(_link)
+{
+  if (msg.member.voice.channel) {
+    const voicechannel = msg.member.voice.channel;
+    voicechannel.join().then(connection => 
+      {
+          const dispatcher = connection.play(
+            ytdl(_link, { // pass the url to .ytdl()
+              quality: 'highestaudio',
+              // download part of the song before playing it
+              // helps reduces stuttering
+              highWaterMark: 1024 * 1024 * 10
+            }));
+      }).catch(err => {console.log(err); VoiceChannel.leave();});
+    }
+  else 
+  {
+    msg.reply('entra num canal primeiro parsa');
+  }
+}
