@@ -1,8 +1,9 @@
 // comando de ativação: 
 
 const discord = require("discord.js");
+require("dotenv").config();
 const client = new discord.Client();
-client.login("XXXXXX"/*bot token*/);
+client.login(process.env.BOT_TOKEN/*bot token*/);
 const Youtube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 var embed = new discord.MessageEmbed();
