@@ -5,13 +5,8 @@ const client = new discord.Client();
 client.login("Njk1Mzc4Mjg2NjQ1MDg0MjI0.XouLyw.KjHKGcp5i22hLaNGXSblC5lbAd0"/*bot token*/);
 const Youtube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
+var embed = new discord.MessageEmbed();
 
-const chavesembed = new discord.MessageEmbed() //https://discordjs.guide/popular-topics/embeds.html#embed-preview
-	.setColor('#FFFFFF')
-  .setTitle('NÃO ESQUECE DAS CHAVES')
-    //.attachFiles(['./imagens/chaves.png'])
-    //.setImage('attachment://chaves.png');
-  .setImage('https://cdn.discordapp.com/attachments/695339029360803941/696130296889868338/chaves.png')	
 
 client.on("ready", () => 
 {
@@ -33,7 +28,13 @@ client.on("message", msg =>
     }
 
     else if(msg.content.toLowerCase().includes("chaves")){
-      msg.channel.send(chavesembed);
+      embed
+      .setColor('#FFFFFF')
+      .setTitle('NÃO ESQUECE DAS CHAVES')
+        //.attachFiles(['./imagens/chaves.png'])
+        //.setImage('attachment://chaves.png');
+      .setImage('https://cdn.discordapp.com/attachments/695339029360803941/696130296889868338/chaves.png');
+      msg.channel.send(embed);
   }
 
     else if(msg.content.toLowerCase().includes("ibm")){
