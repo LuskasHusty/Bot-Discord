@@ -2,7 +2,7 @@
 
 const discord = require("discord.js");
 const client = new discord.Client();
-client.login("Njk1Mzc4Mjg2NjQ1MDg0MjI0.XozEug.HtCXflq0A5aayDKQEVooBXQO-40"/*bot token*/);
+client.login("XXXXXX"/*bot token*/);
 const Youtube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 var embed = new discord.MessageEmbed();
@@ -57,23 +57,23 @@ client.on("message", msg =>
     if (!msg.guild) return;
     if (msg.content.toLowerCase().includes("gragas")) {
     // Only try to join the sender's voice channel if they are in one themselves
-      play("https://www.youtube.com/watch?v=dSsUCZbzmq8");
+      play("https://www.youtube.com/watch?v=dSsUCZbzmq8", msg);
     }
 
     else if (msg.content.toLowerCase().includes("ronaldo")) {
       // Only try to join the sender's voice channel if they are in one themselves
-      play("https:www.youtube.com/watch?v=TFdO7oqkMzI");
+      play("https:www.youtube.com/watch?v=TFdO7oqkMzI", msg);
     }
 
     else if (msg.content.toLowerCase().includes("covid")) 
         {
-          play("https://www.youtube.com/watch?v=yyGKsD5uBVg");
+          play("https://www.youtube.com/watch?v=yyGKsD5uBVg", msg);
     //else if(msg.content == "")
     /*seus else if vem aqui*/
     }
     if (msg.content.toLowerCase().includes("ratatui")) {
       // Only try to join the sender's voice channel if they are in one themselves
-        play("https://www.youtube.com/watch?v=p_hdmt4vpBo");
+        play("https://www.youtube.com/watch?v=p_hdmt4vpBo", msg);
       }
 });
 
