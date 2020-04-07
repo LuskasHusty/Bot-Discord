@@ -2,7 +2,7 @@
 
 const discord = require("discord.js");
 const client = new discord.Client();
-client.login("Njk1Mzc4Mjg2NjQ1MDg0MjI0.XouLyw.KjHKGcp5i22hLaNGXSblC5lbAd0"/*bot token*/);
+client.login("XXXXXXXXXXX"/*bot token*/);
 const Youtube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 var embed = new discord.MessageEmbed();
@@ -41,24 +41,33 @@ client.on("message", msg =>
       msg.channel.send("imb é o caralho \nnem sei escrever o nome dessa porra");
     }
 
+    else if(msg.content.toLowerCase().includes("covid")){
+      msg.channel.send("bacteria filha da ^^^^ microbiu do ^^^^^^");
+    }
+
     else if(msg.content.toLowerCase().includes("cabub")){
       msg.channel.send("pseudo dono e melhor veterano");
     }
 
-    else if (msg.content.toLowerCase().includes("poli")){
-      msg.channel.send("clb Poli");
+    else if (msg.content.toLowerCase().includes("idalgo")){
+      msg.channel.send("mais conhecido nas boca de fumo por tom moletom");
     }
     
 
     if (!msg.guild) return;
-    if (msg.content === '/gragas') {
+    if (msg.content.toLowerCase().includes("gragas")) {
     // Only try to join the sender's voice channel if they are in one themselves
       play("https://www.youtube.com/watch?v=dSsUCZbzmq8");
     }
 
-    else if (msg.content === 'ronaldo') {
+    else if (msg.content.toLowerCase().includes("ronaldo")) {
       // Only try to join the sender's voice channel if they are in one themselves
       play("https:www.youtube.com/watch?v=TFdO7oqkMzI");
+    }
+
+        else if (msg.content.toLowerCase().includes("covid")) 
+        {
+          play("https://www.youtube.com/watch?v=yyGKsD5uBVg");
     //else if(msg.content == "")
     /*seus else if vem aqui*/
     }
